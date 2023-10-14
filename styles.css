@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: grey;
+    background: black;
 
 }
 .cube {
@@ -16,6 +16,8 @@ body {
     width: 300px;
     height: 300px;
     transform: translate(20%,200px);
+    transform-style: preserve-3d;
+    
 
 }
 .cube div {
@@ -27,8 +29,9 @@ body {
     transform-style: preserve-3d;
     animation: animate 6s linear infinite;
     transform: rotateX(-20deg) rotateY(25deg);
-
+    
 }
+
 @keyframes animate {
     0% {
         transform: rotateX(-20deg) rotateY(360deg);
@@ -42,30 +45,42 @@ body {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: var(--clr);
     transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
-    /* 300 / 2 = 150 */
     transform-style: preserve-3d;
     transition: 0.5s;
+    background: linear-gradient(#151515,#00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+
+
 
 }
 .cube .big span.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #222;
     transform: rotateX(90deg) translateZ(150px);
 
 }
-.cube:hover .big span {
-    background: transparent;
-    border: 10px solid #ffa20d;
-    filter: drop-shadow(0 0 20px #ffa20d);
 
-}
 .cube .big span.top::before {
     content: '';
     position: absolute;
-    inset: 0;
-    transform: translateZ(-350px);
-    background: rgba(0,0,0,0.5);
+    top: 0;
+    left:0;
+    width: 300px;
+    height: 300px;
+    background: #0f0;
+    transform: translateZ(-380px);
     filter: blur(50px);
+    box-shadow: 0 0 120px rgba(0,255,0,0.2),
+    0 0 200px rgba(0,255,0,0.4),
+    0 0 300px rgba(0,255,0,0.6),
+    0 0 400px rgba(0,255,0,0.8),
+    0 0 500px rgba(0,255,0,1);
+
 
 
 
@@ -77,9 +92,6 @@ body {
     height: 300px;
     /* ///// moves the cube */
     transform: translate(-90%,-260px);
-    /* top: 50%;
-    left: 50%; */
-
 
 }
 .cube2 div {
@@ -104,33 +116,44 @@ body {
     }
 }
 /* starts the 2d square  */
-.cube2 .big span {
+.cube2 .small span {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: var(--clr);
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
     transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
-    /* 300 / 2 = 150 */
     transform-style: preserve-3d;
     transition: 0.5s;
+    background: linear-gradient(#151515,#1206DC);
 
 }
-.cube2 .big span.top {
+.cube2 .small span.top2 {
     transform: rotateX(90deg) translateZ(150px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #222;
 
 }
-.cube2:hover .big span {
-    background: transparent;
-    border: 10px solid #fff;
-    filter: drop-shadow(0 0 20px #fff);
-    
-}
-.cube2 .big span.top::before {
+
+.cube2 .small span.top2::before {
     content: '';
     position: absolute;
     inset: 0;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
     transform: translateZ(-350px);
-    background: rgba(0,0,0,0.3);
+    background: blue;
+    transform: translateZ(-380px);
     filter: blur(50px);
-
+    box-shadow: 0 0 120px rgba(37,26,240,0.2),
+    0 0 200px rgba(37,26,240,0.4),
+    0 0 300px rgba(37,26,240,0.6),
+    0 0 400px rgba(37,26,240,0.8),
+    0 0 500px rgba(37,26,240,1);
 }
